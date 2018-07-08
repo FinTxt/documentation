@@ -1,0 +1,3 @@
+# News Intensity API {#theapi}
+
+// TODO: add information about the API

@@ -1,0 +1,5 @@
+# Getting started {#gettinstarted}
+
+// TODO: interacting with the API
+
+// TODO: API using the FinTxtClient R Package

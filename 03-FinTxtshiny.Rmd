@@ -1,0 +1,3 @@
+# News Intensity Dashboard {#thedashboard}
+
+// TODO: add information about the dashboard
