@@ -1,5 +1,5 @@
 [
-["index.html", "FinTxt documentation Chapter 1 Introduction", " FinTxt documentation Jasper Ginn 2018-07-08 Chapter 1 Introduction // TODO: Add introduction "],
+["index.html", "FinTxt documentation Chapter 1 Introduction", " FinTxt documentation Jasper Ginn 2018-07-08 Chapter 1 Introduction // TODO: Add introduction // TODO: What are news intensities? "],
 ["gettinstarted.html", "Chapter 2 Getting started", " Chapter 2 Getting started // TODO: interacting with the API // TODO: API using the FinTxtClient R Package "],
 ["theapi.html", "Chapter 3 News Intensity API", " Chapter 3 News Intensity API // TODO: add information about the API "],
 ["thedashboard.html", "Chapter 4 News Intensity Dashboard", " Chapter 4 News Intensity Dashboard // TODO: add information about the dashboard "],

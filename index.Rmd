@@ -13,3 +13,5 @@ description: "This document provides documentation about the FinTxt News Intensi
 # Introduction {#intro}
 
 // TODO: Add introduction
+
+// TODO: What are news intensities?
