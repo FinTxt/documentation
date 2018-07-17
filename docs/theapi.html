@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FinTxt documentation</title>
+  <title></title>
   <meta name="description" content="This document provides documentation about the FinTxt News Intensity API.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="FinTxt documentation" />
+  <meta property="og:title" content="" />
   <meta property="og:type" content="book" />
   
   
@@ -17,15 +17,13 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="FinTxt documentation" />
+  <meta name="twitter:title" content="" />
   
   <meta name="twitter:description" content="This document provides documentation about the FinTxt News Intensity API." />
   
 
-<meta name="author" content="Jasper Ginn">
 
 
-<meta name="date" content="2018-07-08">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -49,6 +47,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -68,7 +103,13 @@
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="gettinstarted.html"><a href="gettinstarted.html"><i class="fa fa-check"></i><b>2</b> Getting started</a></li>
-<li class="chapter" data-level="3" data-path="theapi.html"><a href="theapi.html"><i class="fa fa-check"></i><b>3</b> News Intensity API</a></li>
+<li class="chapter" data-level="3" data-path="theapi.html"><a href="theapi.html"><i class="fa fa-check"></i><b>3</b> News Intensity API</a><ul>
+<li class="chapter" data-level="3.1" data-path="theapi.html"><a href="theapi.html#basic-usage"><i class="fa fa-check"></i><b>3.1</b> Basic usage</a></li>
+<li class="chapter" data-level="3.2" data-path="theapi.html"><a href="theapi.html#r-and-python-clients"><i class="fa fa-check"></i><b>3.2</b> R and Python clients</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="theapi.html"><a href="theapi.html#r-client"><i class="fa fa-check"></i><b>3.2.1</b> R client</a></li>
+<li class="chapter" data-level="3.2.2" data-path="theapi.html"><a href="theapi.html#python-client"><i class="fa fa-check"></i><b>3.2.2</b> Python client</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="thedashboard.html"><a href="thedashboard.html"><i class="fa fa-check"></i><b>4</b> News Intensity Dashboard</a></li>
 <li class="chapter" data-level="5" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>5</b> Resources</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -84,7 +125,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">FinTxt documentation</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -94,8 +135,111 @@
             <section class="normal" id="section-">
 <div id="theapi" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> News Intensity API</h1>
-<p>// TODO: add information about the API</p>
+<p>The FinTxt news intensity API is hosted at <URL>. You can view the endpoints and their documentation at <URL/__swagger__>.</p>
+<p>The API contains four endpoints:</p>
+<ol style="list-style-type: decimal">
+<li><strong>languages</strong>: returns a list of available language for which you can query news intensities</li>
+<li><strong>live</strong>: returns live news intensity metrics for a company or commodity and a language</li>
+<li><strong>historic</strong>: returns historic news intensity metrics for a company or commodity, a language and a date</li>
+<li><strong>portfolio</strong>: returns live or historic news intensity metrics for a weighted portfolio of stocks or commodities, a language and a date.</li>
+</ol>
+<p>The <em>language</em> endpoint can be queried without an API key. The <em>historic</em> endpoint can be queried without an API key for dates that go back beyond 30 days on the date of today.</p>
+<div id="basic-usage" class="section level2">
+<h2><span class="header-section-number">3.1</span> Basic usage</h2>
+<p>View the <a href="%3CURL/__swagger__/">documentation</a> for each endpoint for more information about headers and post bodies.</p>
+</div>
+<div id="r-and-python-clients" class="section level2">
+<h2><span class="header-section-number">3.2</span> R and Python clients</h2>
+<p>You can use the R and Python 3 clients to retrieve data from the API. These clients can be installed from their GitHub repositories.</p>
+<div id="r-client" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> R client</h3>
+<p>Install the <a href="https://github.com/FinTxt/FinTxtClient-R">R client</a> by executing</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;FinTxt/FinTxtClient&quot;</span>)</code></pre></div>
+<p>After installing the package, register your API token by calling the following code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(FinTxtClient)
+<span class="kw">Sys.setenv</span>(<span class="st">&quot;FINTXT_CLIENT_TOKEN&quot;</span> =<span class="st"> &quot;&lt;yourtoken&gt;&quot;</span>)</code></pre></div>
+<p>You can now access the various endpoints:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set some variables</span>
+identifiers =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;TRI.TO&quot;</span>, <span class="st">&quot;IBM.N&quot;</span>, <span class="st">&quot;RRD.N&quot;</span>, <span class="st">&quot;SPGI.N&quot;</span>, <span class="st">&quot;INTU.OQ&quot;</span>, <span class="st">&quot;RELN.AS&quot;</span>, <span class="st">&quot;WLSNc.AS&quot;</span>, <span class="st">&quot;REL.L&quot;</span>)
+weights =<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">0.1</span>,<span class="fl">0.05</span>,<span class="fl">0.05</span>, <span class="fl">0.2</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>)
+date =<span class="st"> &quot;09-07-2018&quot;</span>
+type =<span class="st"> &quot;companies&quot;</span>
+language =<span class="st"> &quot;english&quot;</span>
 
+<span class="co"># Load the client</span>
+<span class="kw">library</span>(FinTxtClient)
+
+<span class="co"># Call the languages endpoint</span>
+langs &lt;-<span class="st"> </span><span class="kw">fintxt_get_languages</span>()
+
+<span class="co"># Get the live intensity for a stock</span>
+one &lt;-<span class="st"> </span><span class="kw">fintxt_live_intensities_one</span>(<span class="dt">type =</span> type, <span class="dt">language =</span> language, <span class="dt">q =</span> identifiers[<span class="dv">1</span>])
+<span class="co"># Same but for commodity</span>
+one &lt;-<span class="st"> </span><span class="kw">fintxt_live_intensities_one</span>(<span class="dt">type =</span> <span class="st">&quot;commodities&quot;</span>, <span class="dt">language =</span> language, <span class="dt">q =</span> <span class="st">&quot;milk&quot;</span>)
+
+<span class="co"># Get historic intensity for a stock</span>
+one &lt;-<span class="st"> </span><span class="kw">fintxt_historic_intensities_one</span>(<span class="dt">type =</span> type, <span class="dt">language =</span> language,
+                                       <span class="dt">date =</span> date, <span class="dt">q=</span>identifiers[<span class="dv">1</span>])
+                                       
+<span class="co"># Same but for commodity</span>
+one &lt;-<span class="st"> </span><span class="kw">fintxt_historic_intensities_one</span>(<span class="dt">type =</span> <span class="st">&quot;commodities&quot;</span>, <span class="dt">language =</span> language,
+                                       <span class="dt">date =</span> date, <span class="dt">q=</span><span class="st">&quot;milk&quot;</span>)
+
+<span class="co"># Get live intensity for a portfolio</span>
+port &lt;-<span class="st"> </span><span class="kw">fintxt_live_intensities_portfolio</span>(<span class="dt">type =</span> type,
+                                          <span class="dt">language =</span> language,
+                                          <span class="dt">identifiers =</span> <span class="kw">c</span>(identifiers, <span class="st">&quot;monkey&quot;</span>),
+                                          <span class="dt">weights =</span> <span class="kw">c</span>(weights, <span class="fl">0.4</span>))
+<span class="co"># For commodity</span>
+port &lt;-<span class="st"> </span><span class="kw">fintxt_live_intensities_portfolio</span>(<span class="dt">type =</span> <span class="st">&quot;commodities&quot;</span>,
+                                          <span class="dt">language =</span> language,
+                                          <span class="dt">identifiers =</span> <span class="kw">c</span>(<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;soybeans&quot;</span>),
+                                          <span class="dt">weights =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))
+
+<span class="co"># Get historic intensity for a portfolio</span>
+port &lt;-<span class="st"> </span><span class="kw">fintxt_historic_intensities_portfolio</span>(<span class="dt">type =</span> type,
+                                          <span class="dt">language =</span> language,
+                                          <span class="dt">date =</span> date,
+                                          <span class="dt">identifiers =</span> <span class="kw">c</span>(identifiers, <span class="st">&quot;monkey&quot;</span>),
+                                          <span class="dt">weights =</span> <span class="kw">c</span>(weights, <span class="fl">0.4</span>))
+                                          
+<span class="co"># For commodity</span>
+port &lt;-<span class="st"> </span><span class="kw">fintxt_historic_intensities_portfolio</span>(<span class="dt">type =</span> <span class="st">&quot;commodities&quot;</span>,
+                                              <span class="dt">language =</span> language,
+                                              <span class="dt">date =</span> date,
+                                              <span class="dt">identifiers =</span> <span class="kw">c</span>(<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;soybeans&quot;</span>),
+                                              <span class="dt">weights =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</code></pre></div>
+</div>
+<div id="python-client" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Python client</h3>
+<p>To install the <a href="https://github.com/FinTxt/FinTxtClient-Py">python client</a>, execute the following:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>FinTxt<span class="op">/</span>FinTxtClient<span class="op">-</span>Py.git <span class="op">--</span>user</code></pre></div>
+<p>You can import the package as follows:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> FinTxtClient <span class="im">import</span> FinTxtClient</code></pre></div>
+<p>Then, you can initiate the client using:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">client <span class="op">=</span> FinTxtClient() <span class="co"># Optionally, pass &#39;key = &lt;your-key-here&gt;&#39;</span></code></pre></div>
+<p>Using the client is as simple as calling the following functions:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Call the languages endpoint</span>
+client.languages()
+
+<span class="co"># Call the live endpoint for a commodity</span>
+client.live_one(<span class="st">&quot;commodities&quot;</span>, <span class="st">&quot;english&quot;</span>, <span class="st">&quot;milk&quot;</span>)
+
+<span class="co"># Call the historic endpoint for a commodity and a date</span>
+client.historic_one(<span class="st">&quot;commodities&quot;</span>, <span class="st">&quot;english&quot;</span>, <span class="st">&quot;13-07-2018&quot;</span>, <span class="st">&quot;milk&quot;</span>)
+
+<span class="co"># Call the live portfolio endpoint</span>
+client.live_portfolio( _type <span class="op">=</span> <span class="st">&quot;companies&quot;</span>, language <span class="op">=</span> <span class="st">&quot;english&quot;</span>, 
+                      identifiers<span class="op">=</span>[<span class="st">&quot;TRI.TO&quot;</span>, <span class="st">&quot;IBM.N&quot;</span>, <span class="st">&quot;RRD.N&quot;</span>, <span class="st">&quot;SPGI.N&quot;</span>, <span class="st">&quot;INTU.OQ&quot;</span>, <span class="st">&quot;RELN.AS&quot;</span>, <span class="st">&quot;WLSNc.AS&quot;</span>, <span class="st">&quot;REL.L&quot;</span>], 
+                      weights<span class="op">=</span>[<span class="fl">0.3</span>, <span class="fl">0.1</span>,<span class="fl">0.05</span>,<span class="fl">0.05</span>, <span class="fl">0.2</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>])
+
+<span class="co"># Call the historic portfolio endpoint                    </span>
+client.historic_portfolio( _type <span class="op">=</span> <span class="st">&quot;companies&quot;</span>, language <span class="op">=</span> <span class="st">&quot;english&quot;</span>, date<span class="op">=</span><span class="st">&quot;13-07-2018&quot;</span>, 
+                          identifiers<span class="op">=</span>[<span class="st">&quot;TRI.TO&quot;</span>, <span class="st">&quot;IBM.N&quot;</span>, <span class="st">&quot;RRD.N&quot;</span>, <span class="st">&quot;SPGI.N&quot;</span>, <span class="st">&quot;INTU.OQ&quot;</span>, <span class="st">&quot;RELN.AS&quot;</span>, <span class="st">&quot;WLSNc.AS&quot;</span>, <span class="st">&quot;REL.L&quot;</span>], 
+                          weights<span class="op">=</span>[<span class="fl">0.3</span>, <span class="fl">0.1</span>,<span class="fl">0.05</span>,<span class="fl">0.05</span>, <span class="fl">0.2</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>,<span class="fl">0.1</span>])</code></pre></div>
+
+</div>
+</div>
 </div>
             </section>
 

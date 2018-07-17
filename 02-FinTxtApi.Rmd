@@ -1,3 +1,134 @@
 # News Intensity API {#theapi}
 
-// TODO: add information about the API
+The FinTxt news intensity API is hosted at <URL>. You can view the endpoints and their documentation at <URL/__swagger__>.
+
+The API contains four endpoints:
+
+  1. **languages**: returns a list of available language for which you can query news intensities
+  2. **live**: returns live news intensity metrics for a company or commodity and a language
+  3. **historic**: returns historic news intensity metrics for a company or commodity, a language and a date 
+  4. **portfolio**: returns live or historic news intensity metrics for a weighted portfolio of stocks or commodities, a language and a date.
+  
+The *language* endpoint can be queried without an API key. The *historic* endpoint can be queried without an API key for dates that go back beyond 30 days on the date of today.
+
+## Basic usage
+
+View the [documentation](<URL/__swagger__/) for each endpoint for more information about headers and post bodies.
+
+## R and Python clients 
+
+You can use the R and Python 3 clients to retrieve data from the API. These clients can be installed from their GitHub repositories.
+
+### R client 
+
+Install the [R client](https://github.com/FinTxt/FinTxtClient-R) by executing
+
+```r
+devtools::install_github("FinTxt/FinTxtClient")
+```
+
+After installing the package, register your API token by calling the following code:
+
+```r
+library(FinTxtClient)
+Sys.setenv("FINTXT_CLIENT_TOKEN" = "<yourtoken>")
+```
+
+You can now access the various endpoints:
+
+```r
+# Set some variables
+identifiers = c("TRI.TO", "IBM.N", "RRD.N", "SPGI.N", "INTU.OQ", "RELN.AS", "WLSNc.AS", "REL.L")
+weights = c(0.3, 0.1,0.05,0.05, 0.2,0.1,0.1,0.1)
+date = "09-07-2018"
+type = "companies"
+language = "english"
+
+# Load the client
+library(FinTxtClient)
+
+# Call the languages endpoint
+langs <- fintxt_get_languages()
+
+# Get the live intensity for a stock
+one <- fintxt_live_intensities_one(type = type, language = language, q = identifiers[1])
+# Same but for commodity
+one <- fintxt_live_intensities_one(type = "commodities", language = language, q = "milk")
+
+# Get historic intensity for a stock
+one <- fintxt_historic_intensities_one(type = type, language = language,
+                                       date = date, q=identifiers[1])
+                                       
+# Same but for commodity
+one <- fintxt_historic_intensities_one(type = "commodities", language = language,
+                                       date = date, q="milk")
+
+# Get live intensity for a portfolio
+port <- fintxt_live_intensities_portfolio(type = type,
+                                          language = language,
+                                          identifiers = c(identifiers, "monkey"),
+                                          weights = c(weights, 0.4))
+# For commodity
+port <- fintxt_live_intensities_portfolio(type = "commodities",
+                                          language = language,
+                                          identifiers = c("milk", "soybeans"),
+                                          weights = c(0.5, 0.5))
+
+# Get historic intensity for a portfolio
+port <- fintxt_historic_intensities_portfolio(type = type,
+                                          language = language,
+                                          date = date,
+                                          identifiers = c(identifiers, "monkey"),
+                                          weights = c(weights, 0.4))
+                                          
+# For commodity
+port <- fintxt_historic_intensities_portfolio(type = "commodities",
+                                              language = language,
+                                              date = date,
+                                              identifiers = c("milk", "soybeans"),
+                                              weights = c(0.5, 0.5))
+```
+
+### Python client 
+
+To install the [python client](https://github.com/FinTxt/FinTxtClient-Py), execute the following:
+
+```python
+pip install git+https://github.com/FinTxt/FinTxtClient-Py.git --user
+```
+
+You can import the package as follows:
+
+```python 
+from FinTxtClient import FinTxtClient
+```
+
+Then, you can initiate the client using:
+
+```python
+client = FinTxtClient() # Optionally, pass 'key = <your-key-here>'
+```
+
+Using the client is as simple as calling the following functions:
+
+
+```python
+# Call the languages endpoint
+client.languages()
+
+# Call the live endpoint for a commodity
+client.live_one("commodities", "english", "milk")
+
+# Call the historic endpoint for a commodity and a date
+client.historic_one("commodities", "english", "13-07-2018", "milk")
+
+# Call the live portfolio endpoint
+client.live_portfolio( _type = "companies", language = "english", 
+                      identifiers=["TRI.TO", "IBM.N", "RRD.N", "SPGI.N", "INTU.OQ", "RELN.AS", "WLSNc.AS", "REL.L"], 
+                      weights=[0.3, 0.1,0.05,0.05, 0.2,0.1,0.1,0.1])
+
+# Call the historic portfolio endpoint                    
+client.historic_portfolio( _type = "companies", language = "english", date="13-07-2018", 
+                          identifiers=["TRI.TO", "IBM.N", "RRD.N", "SPGI.N", "INTU.OQ", "RELN.AS", "WLSNc.AS", "REL.L"], 
+                          weights=[0.3, 0.1,0.05,0.05, 0.2,0.1,0.1,0.1])
+```
