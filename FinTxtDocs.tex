@@ -1,0 +1,521 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{}
+    \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+\usepackage{booktabs}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{Introduction}\label{intro}
+
+// TODO: Add introduction
+
+// TODO: What are news intensities?
+
+\chapter{Getting started}\label{gettinstarted}
+
+This section contains general information about querying companies and
+commodities for both the API and the dashboard.
+
+If you have been given an API key, visit the
+\href{https://fintxt.github.io/documentation/theapi.html}{API} section.
+If you have been given access to the FinTxt dashboard, visit the
+\href{https://fintxt.github.io/documentation/thedashboard.html}{dashboard}
+section.
+
+\section{Languages}\label{languages}
+
+FinTxt news intensity values are based on news articles. These articles
+are written in either one of the following languages:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  English
+\item
+  French
+\item
+  German
+\item
+  Arabic
+\item
+  Russian
+\end{enumerate}
+
+When you retrieve news intensities, you can either select one of these
+languages or opt to use the aggregate of all languages (`total').
+
+\section{Selecting companies}\label{selecting-companies}
+
+When using the API or the dashboard, you should query companies by using
+their
+\href{https://en.wikipedia.org/wiki/Reuters_Instrument_Code}{Reuters
+Instrument Code}.
+
+\section{Selecting commodities}\label{selecting-commodities}
+
+You can query the API and dashboard for either companies or commodities
+(but not a mix of both). The following commodities are available:
+
+\begin{itemize}
+\tightlist
+\item
+  corn
+\item
+  oats
+\item
+  rice\\
+\item
+  soybeans\\
+\item
+  rapeseed\\
+\item
+  wheat\\
+\item
+  milk\\
+\item
+  cocoa\\
+\item
+  coffee\\
+\item
+  cotton\\
+\item
+  sugar\\
+\item
+  oranges\\
+\item
+  ethanol\\
+\item
+  propane\\
+\item
+  copper\\
+\item
+  lead\\
+\item
+  zinc\\
+\item
+  tin\\
+\item
+  aluminium
+\item
+  nickel\\
+\item
+  cobalt\\
+\item
+  molybdenum
+\item
+  steel\\
+\item
+  gold\\
+\item
+  platinum
+\item
+  palladium
+\item
+  silver
+\item
+  rubber
+\item
+  wool
+\item
+  amber
+\end{itemize}
+
+\chapter{News Intensity API}\label{theapi}
+
+The FinTxt news intensity API is hosted at
+\url{https://api.fintxt.io/rest}. You can view the endpoints and their
+documentation \href{https://api.fintxt.io/rest/__swagger__/}{here}.
+
+The API contains four endpoints:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{languages}: returns a list of available language for which you
+  can query news intensities
+\item
+  \textbf{live}: returns live news intensity metrics for a company or
+  commodity and a language
+\item
+  \textbf{historic}: returns historic news intensity metrics for a
+  company or commodity, a language and a date
+\item
+  \textbf{portfolio}: returns live or historic news intensity metrics
+  for a weighted portfolio of stocks or commodities, a language and a
+  date.
+\end{enumerate}
+
+The \emph{language} endpoint can be queried without an API key. The
+\emph{historic} endpoint can be queried without an API key for dates
+that go back beyond 30 days on the date of today.
+
+\section{Basic usage}\label{basic-usage}
+
+View the \href{https://api.fintxt.io/rest/__swagger__/}{documentation}
+for each endpoint for more information about headers and post bodies.
+
+Essentially, you can query each endpoint by building the URL. For
+example, you want to query the news intensity value for the commodity
+\texttt{wool} on 04-06-2018 for texts written in arabic. Your query
+would then look as follows:
+
+\begin{verbatim}
+languages = 'arabic'
+date = '04-06-2018'
+endpoint = 'historic'
+type = 'commodities'
+q = 'wool'
+\end{verbatim}
+
+You could construct this request using \texttt{curl}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{curl}\NormalTok{ -X GET }\StringTok{"https://api.fintxt.io/rest/historic/commodities/arabic/04-06-2018?q=wool"}\NormalTok{ -H  }\StringTok{"accept: application/json"}
+\end{Highlighting}
+\end{Shaded}
+
+You could use \texttt{httr} in R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{languages <-}\StringTok{ 'arabic'}
+\NormalTok{date <-}\StringTok{ '04-06-2018'}
+\NormalTok{endpoint <-}\StringTok{ 'historic'}
+\NormalTok{type <-}\StringTok{ 'commodities'}
+\NormalTok{q <-}\StringTok{ 'wool'}
+
+\NormalTok{url <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"https://api.fintxt.io/rest/"}\NormalTok{, endpoint, }\StringTok{"/"}\NormalTok{, type, }\StringTok{"/"}\NormalTok{, languages, }\StringTok{"/"}\NormalTok{, date, }\StringTok{"?q="}\NormalTok{, q)}
+
+\NormalTok{resp <-}\StringTok{ }\NormalTok{httr}\OperatorTok{::}\KeywordTok{GET}\NormalTok{(url)}
+\NormalTok{httr}\OperatorTok{::}\KeywordTok{content}\NormalTok{(resp)}
+\end{Highlighting}
+\end{Shaded}
+
+Or you could use \texttt{requests} in Python:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ json}
+\ImportTok{import}\NormalTok{ requests}
+
+\NormalTok{languages }\OperatorTok{=} \StringTok{'arabic'}
+\NormalTok{date }\OperatorTok{=} \StringTok{'04-06-2018'}
+\NormalTok{endpoint }\OperatorTok{=} \StringTok{'historic'}
+\NormalTok{type_ }\OperatorTok{=} \StringTok{'commodities'}
+\NormalTok{q }\OperatorTok{=} \StringTok{'wool'}
+
+\NormalTok{url }\OperatorTok{=} \StringTok{"https://api.fintxt.io/rest/}\SpecialCharTok{\{\}}\StringTok{/}\SpecialCharTok{\{\}}\StringTok{/}\SpecialCharTok{\{\}}\StringTok{/}\SpecialCharTok{\{\}}\StringTok{?q=}\SpecialCharTok{\{\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(endpoint, type_, languages, date, q)}
+
+\CommentTok{# Send request }
+\NormalTok{r }\OperatorTok{=}\NormalTok{ requests.get(url)}
+
+\CommentTok{# Load response}
+\NormalTok{c }\OperatorTok{=}\NormalTok{ json.loads(r.content)}
+
+\BuiltInTok{print}\NormalTok{(c)}
+\end{Highlighting}
+\end{Shaded}
+
+But it would be easier to use the clients described below.
+
+\section{R and Python clients}\label{r-and-python-clients}
+
+You can use the R and Python 3 clients to retrieve data from the API.
+These clients can be installed from their GitHub repositories.
+
+\subsection{R client}\label{r-client}
+
+Install the \href{https://github.com/FinTxt/FinTxtClient-R}{R client} by
+executing
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"FinTxt/FinTxtClient"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+After installing the package, register your API token by calling the
+following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(FinTxtClient)}
+\KeywordTok{Sys.setenv}\NormalTok{(}\StringTok{"FINTXT_CLIENT_TOKEN"}\NormalTok{ =}\StringTok{ "<yourtoken>"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can now access the various endpoints:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Set some variables}
+\NormalTok{identifiers =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"TRI.TO"}\NormalTok{, }\StringTok{"IBM.N"}\NormalTok{, }\StringTok{"RRD.N"}\NormalTok{, }\StringTok{"SPGI.N"}\NormalTok{, }\StringTok{"INTU.OQ"}\NormalTok{, }\StringTok{"RELN.AS"}\NormalTok{, }\StringTok{"WLSNc.AS"}\NormalTok{, }\StringTok{"REL.L"}\NormalTok{)}
+\NormalTok{weights =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{,}\FloatTok{0.05}\NormalTok{,}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.2}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.1}\NormalTok{)}
+\NormalTok{date =}\StringTok{ "09-07-2018"}
+\NormalTok{type =}\StringTok{ "companies"}
+\NormalTok{language =}\StringTok{ "english"}
+
+\CommentTok{# Load the client}
+\KeywordTok{library}\NormalTok{(FinTxtClient)}
+
+\CommentTok{# Call the languages endpoint}
+\NormalTok{langs <-}\StringTok{ }\KeywordTok{fintxt_get_languages}\NormalTok{()}
+
+\CommentTok{# Get the live intensity for a stock}
+\NormalTok{one <-}\StringTok{ }\KeywordTok{fintxt_live_intensities_one}\NormalTok{(}\DataTypeTok{type =}\NormalTok{ type, }\DataTypeTok{language =}\NormalTok{ language, }\DataTypeTok{q =}\NormalTok{ identifiers[}\DecValTok{1}\NormalTok{])}
+\CommentTok{# Same but for commodity}
+\NormalTok{one <-}\StringTok{ }\KeywordTok{fintxt_live_intensities_one}\NormalTok{(}\DataTypeTok{type =} \StringTok{"commodities"}\NormalTok{, }\DataTypeTok{language =}\NormalTok{ language, }\DataTypeTok{q =} \StringTok{"milk"}\NormalTok{)}
+
+\CommentTok{# Get historic intensity for a stock}
+\NormalTok{one <-}\StringTok{ }\KeywordTok{fintxt_historic_intensities_one}\NormalTok{(}\DataTypeTok{type =}\NormalTok{ type, }\DataTypeTok{language =}\NormalTok{ language,}
+                                       \DataTypeTok{date =}\NormalTok{ date, }\DataTypeTok{q=}\NormalTok{identifiers[}\DecValTok{1}\NormalTok{])}
+                                       
+\CommentTok{# Same but for commodity}
+\NormalTok{one <-}\StringTok{ }\KeywordTok{fintxt_historic_intensities_one}\NormalTok{(}\DataTypeTok{type =} \StringTok{"commodities"}\NormalTok{, }\DataTypeTok{language =}\NormalTok{ language,}
+                                       \DataTypeTok{date =}\NormalTok{ date, }\DataTypeTok{q=}\StringTok{"milk"}\NormalTok{)}
+
+\CommentTok{# Get live intensity for a portfolio}
+\NormalTok{port <-}\StringTok{ }\KeywordTok{fintxt_live_intensities_portfolio}\NormalTok{(}\DataTypeTok{type =}\NormalTok{ type,}
+                                          \DataTypeTok{language =}\NormalTok{ language,}
+                                          \DataTypeTok{identifiers =} \KeywordTok{c}\NormalTok{(identifiers, }\StringTok{"monkey"}\NormalTok{),}
+                                          \DataTypeTok{weights =} \KeywordTok{c}\NormalTok{(weights, }\FloatTok{0.4}\NormalTok{))}
+\CommentTok{# For commodity}
+\NormalTok{port <-}\StringTok{ }\KeywordTok{fintxt_live_intensities_portfolio}\NormalTok{(}\DataTypeTok{type =} \StringTok{"commodities"}\NormalTok{,}
+                                          \DataTypeTok{language =}\NormalTok{ language,}
+                                          \DataTypeTok{identifiers =} \KeywordTok{c}\NormalTok{(}\StringTok{"milk"}\NormalTok{, }\StringTok{"soybeans"}\NormalTok{),}
+                                          \DataTypeTok{weights =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{))}
+
+\CommentTok{# Get historic intensity for a portfolio}
+\NormalTok{port <-}\StringTok{ }\KeywordTok{fintxt_historic_intensities_portfolio}\NormalTok{(}\DataTypeTok{type =}\NormalTok{ type,}
+                                          \DataTypeTok{language =}\NormalTok{ language,}
+                                          \DataTypeTok{date =}\NormalTok{ date,}
+                                          \DataTypeTok{identifiers =} \KeywordTok{c}\NormalTok{(identifiers, }\StringTok{"monkey"}\NormalTok{),}
+                                          \DataTypeTok{weights =} \KeywordTok{c}\NormalTok{(weights, }\FloatTok{0.4}\NormalTok{))}
+                                          
+\CommentTok{# For commodity}
+\NormalTok{port <-}\StringTok{ }\KeywordTok{fintxt_historic_intensities_portfolio}\NormalTok{(}\DataTypeTok{type =} \StringTok{"commodities"}\NormalTok{,}
+                                              \DataTypeTok{language =}\NormalTok{ language,}
+                                              \DataTypeTok{date =}\NormalTok{ date,}
+                                              \DataTypeTok{identifiers =} \KeywordTok{c}\NormalTok{(}\StringTok{"milk"}\NormalTok{, }\StringTok{"soybeans"}\NormalTok{),}
+                                              \DataTypeTok{weights =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Python client}\label{python-client}
+
+To install the \href{https://github.com/FinTxt/FinTxtClient-Py}{python
+client}, execute the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pip install git}\OperatorTok{+}\NormalTok{https:}\OperatorTok{//}\NormalTok{github.com}\OperatorTok{/}\NormalTok{FinTxt}\OperatorTok{/}\NormalTok{FinTxtClient}\OperatorTok{-}\NormalTok{Py.git }\OperatorTok{--}\NormalTok{user}
+\end{Highlighting}
+\end{Shaded}
+
+You can import the package as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ FinTxtClient }\ImportTok{import}\NormalTok{ FinTxtClient}
+\end{Highlighting}
+\end{Shaded}
+
+Then, you can initiate the client using:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{client }\OperatorTok{=}\NormalTok{ FinTxtClient() }\CommentTok{# Optionally, pass 'key = <your-key-here>'}
+\end{Highlighting}
+\end{Shaded}
+
+Using the client is as simple as calling the following functions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Call the languages endpoint}
+\NormalTok{client.languages()}
+
+\CommentTok{# Call the live endpoint for a commodity}
+\NormalTok{client.live_one(}\StringTok{"commodities"}\NormalTok{, }\StringTok{"english"}\NormalTok{, }\StringTok{"milk"}\NormalTok{)}
+
+\CommentTok{# Call the historic endpoint for a commodity and a date}
+\NormalTok{client.historic_one(}\StringTok{"commodities"}\NormalTok{, }\StringTok{"english"}\NormalTok{, }\StringTok{"13-07-2018"}\NormalTok{, }\StringTok{"milk"}\NormalTok{)}
+
+\CommentTok{# Call the live portfolio endpoint}
+\NormalTok{client.live_portfolio( _type }\OperatorTok{=} \StringTok{"companies"}\NormalTok{, language }\OperatorTok{=} \StringTok{"english"}\NormalTok{, }
+\NormalTok{                      identifiers}\OperatorTok{=}\NormalTok{[}\StringTok{"TRI.TO"}\NormalTok{, }\StringTok{"IBM.N"}\NormalTok{, }\StringTok{"RRD.N"}\NormalTok{, }\StringTok{"SPGI.N"}\NormalTok{, }\StringTok{"INTU.OQ"}\NormalTok{, }\StringTok{"RELN.AS"}\NormalTok{, }\StringTok{"WLSNc.AS"}\NormalTok{, }\StringTok{"REL.L"}\NormalTok{], }
+\NormalTok{                      weights}\OperatorTok{=}\NormalTok{[}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{,}\FloatTok{0.05}\NormalTok{,}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.2}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.1}\NormalTok{])}
+
+\CommentTok{# Call the historic portfolio endpoint                    }
+\NormalTok{client.historic_portfolio( _type }\OperatorTok{=} \StringTok{"companies"}\NormalTok{, language }\OperatorTok{=} \StringTok{"english"}\NormalTok{, date}\OperatorTok{=}\StringTok{"13-07-2018"}\NormalTok{, }
+\NormalTok{                          identifiers}\OperatorTok{=}\NormalTok{[}\StringTok{"TRI.TO"}\NormalTok{, }\StringTok{"IBM.N"}\NormalTok{, }\StringTok{"RRD.N"}\NormalTok{, }\StringTok{"SPGI.N"}\NormalTok{, }\StringTok{"INTU.OQ"}\NormalTok{, }\StringTok{"RELN.AS"}\NormalTok{, }\StringTok{"WLSNc.AS"}\NormalTok{, }\StringTok{"REL.L"}\NormalTok{], }
+\NormalTok{                          weights}\OperatorTok{=}\NormalTok{[}\FloatTok{0.3}\NormalTok{, }\FloatTok{0.1}\NormalTok{,}\FloatTok{0.05}\NormalTok{,}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.2}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.1}\NormalTok{,}\FloatTok{0.1}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{News Intensity Dashboard}\label{thedashboard}
+
+The news intensity dashboard is hosted at
+\href{https://dashboard.fintxt.io/app/FinTxtDashboard}{https://dashboard.fintxt.io}
+and is only accessible if you have received a username / password
+combination. Before you read on, you should check out the
+\href{https://fintxt.github.io/documentation/gettinstarted.html}{`getting
+started' section}.
+
+\begin{figure}
+\centering
+\includegraphics{img/createportfolio.gif}
+\caption{portfolio}
+\end{figure}
+
+\chapter{Resources}\label{resources}
+
+// TODO: add David's research
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}

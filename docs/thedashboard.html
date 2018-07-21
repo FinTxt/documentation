@@ -114,7 +114,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.2" data-path="theapi.html"><a href="theapi.html#python-client"><i class="fa fa-check"></i><b>3.2.2</b> Python client</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="thedashboard.html"><a href="thedashboard.html"><i class="fa fa-check"></i><b>4</b> News Intensity Dashboard</a></li>
+<li class="chapter" data-level="4" data-path="thedashboard.html"><a href="thedashboard.html"><i class="fa fa-check"></i><b>4</b> News Intensity Dashboard</a><ul>
+<li class="chapter" data-level="4.1" data-path="thedashboard.html"><a href="thedashboard.html#company-overview"><i class="fa fa-check"></i><b>4.1</b> Company overview</a></li>
+<li class="chapter" data-level="4.2" data-path="thedashboard.html"><a href="thedashboard.html#portfolio-overview"><i class="fa fa-check"></i><b>4.2</b> Portfolio overview</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>5</b> Resources</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -139,8 +142,59 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="thedashboard" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> News Intensity Dashboard</h1>
-<p>// TODO: add information about the dashboard</p>
+<p>The news intensity dashboard is hosted at <a href="https://dashboard.fintxt.io/app/FinTxtDashboard">https://dashboard.fintxt.io</a> and is only accessible if you have received a username / password combination. Before you read on, you should check out the <a href="https://fintxt.github.io/documentation/gettinstarted.html">‘getting started’ section</a>.</p>
+<div id="company-overview" class="section level2">
+<h2><span class="header-section-number">4.1</span> Company overview</h2>
+<p>After logging in to the dashboard, you can view the submenu’s for the ‘Company’ section by click on the <code>Company</code> tab. Enter a commodity name or company RIC into the search bar and select one of the sub categories.</p>
+<div class="figure">
+<img src="img/company_overview.gif" alt="Querying a company or commodity" />
+<p class="caption">Querying a company or commodity</p>
+</div>
+</div>
+<div id="portfolio-overview" class="section level2">
+<h2><span class="header-section-number">4.2</span> Portfolio overview</h2>
+<p>To work with the portfolio overview, you first have to upload a portfolio. This file has to be comma-delimited (CVS).</p>
+<p>Your file must contain two columns; the first column must be called ‘identifier’ (this is where the company RICs or commodity names go) and the second column must be called ‘weight’ (this is where you specify the percentage in decimal form).</p>
+<p>An example of a portfolio file is given below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">identifier</th>
+<th align="right">weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">TRI.TO</td>
+<td align="right">0.33</td>
+</tr>
+<tr class="even">
+<td align="left">AAPL.OQ</td>
+<td align="right">0.33</td>
+</tr>
+<tr class="odd">
+<td align="left">GOOGL.OQ</td>
+<td align="right">0.33</td>
+</tr>
+</tbody>
+</table>
+<p>Next, upload your portfolio using the ‘upload’ functionality.</p>
+<div class="figure">
+<img src="img/createportfolio.gif" alt="Creating and uploading a portfolio" />
+<p class="caption">Creating and uploading a portfolio</p>
+</div>
+<p>You can now use the portfolio features as shown below.</p>
+<div class="figure">
+<img src="img/portfolio_overview.gif" alt="Using the portfolio features" />
+<p class="caption">Using the portfolio features</p>
+</div>
+<p>Note that you cannot mix both commodities and companies in your portfolio. If you try this, you will see the following error:</p>
+<div class="figure">
+<img src="img/mixcomms.gif" alt="Mixing commodities and companies" />
+<p class="caption">Mixing commodities and companies</p>
+</div>
 
+</div>
 </div>
             </section>
 
