@@ -1,5 +1,58 @@
 # Getting started {#gettinstarted}
 
-// TODO: interacting with the API
+This section contains general information about querying companies and commodities for both the API and the dashboard.
 
-// TODO: API using the FinTxtClient R Package
+If you have been given an API key, visit the [API](https://fintxt.github.io/documentation/theapi.html) section. If you have been given access to the FinTxt dashboard, visit the [dashboard](https://fintxt.github.io/documentation/thedashboard.html) section. 
+
+## Languages
+
+FinTxt news intensity values are based on news articles. These articles are written in either one of the following languages:
+
+1. English 
+2. French
+3. German
+4. Arabic
+5. Russian
+
+When you retrieve news intensities, you can either select one of these languages or opt to use the aggregate of all languages ('total').
+
+## Selecting companies 
+
+When using the API or the dashboard, you should query companies by using their [Reuters Instrument Code](https://en.wikipedia.org/wiki/Reuters_Instrument_Code). 
+
+## Selecting commodities
+
+You can query the API and dashboard for either companies or commodities (but not a mix of both). The following commodities are available:
+
+ - corn
+ - oats
+ - rice       
+ - soybeans   
+ - rapeseed   
+ - wheat      
+ - milk       
+ - cocoa     
+ - coffee     
+ - cotton     
+ - sugar      
+ - oranges    
+ - ethanol    
+ - propane    
+ - copper     
+ - lead      
+ - zinc       
+ - tin        
+ - aluminium
+ - nickel     
+ - cobalt     
+ - molybdenum
+ - steel      
+ - gold      
+ - platinum
+ - palladium
+ - silver
+ - rubber
+ - wool
+ - amber
+ 
+ 

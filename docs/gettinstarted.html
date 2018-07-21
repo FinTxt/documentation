@@ -102,7 +102,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="gettinstarted.html"><a href="gettinstarted.html"><i class="fa fa-check"></i><b>2</b> Getting started</a></li>
+<li class="chapter" data-level="2" data-path="gettinstarted.html"><a href="gettinstarted.html"><i class="fa fa-check"></i><b>2</b> Getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="gettinstarted.html"><a href="gettinstarted.html#languages"><i class="fa fa-check"></i><b>2.1</b> Languages</a></li>
+<li class="chapter" data-level="2.2" data-path="gettinstarted.html"><a href="gettinstarted.html#selecting-companies"><i class="fa fa-check"></i><b>2.2</b> Selecting companies</a></li>
+<li class="chapter" data-level="2.3" data-path="gettinstarted.html"><a href="gettinstarted.html#selecting-commodities"><i class="fa fa-check"></i><b>2.3</b> Selecting commodities</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="theapi.html"><a href="theapi.html"><i class="fa fa-check"></i><b>3</b> News Intensity API</a><ul>
 <li class="chapter" data-level="3.1" data-path="theapi.html"><a href="theapi.html#basic-usage"><i class="fa fa-check"></i><b>3.1</b> Basic usage</a></li>
 <li class="chapter" data-level="3.2" data-path="theapi.html"><a href="theapi.html#r-and-python-clients"><i class="fa fa-check"></i><b>3.2</b> R and Python clients</a><ul>
@@ -135,9 +139,81 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="gettinstarted" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Getting started</h1>
-<p>// TODO: interacting with the API</p>
-<p>// TODO: API using the FinTxtClient R Package</p>
+<p>This section contains general information about querying companies and commodities for both the API and the dashboard.</p>
+<p>If you have been given an API key, visit the <a href="https://fintxt.github.io/documentation/theapi.html">API</a> section. If you have been given access to the FinTxt dashboard, visit the <a href="https://fintxt.github.io/documentation/thedashboard.html">dashboard</a> section.</p>
+<div id="languages" class="section level2">
+<h2><span class="header-section-number">2.1</span> Languages</h2>
+<p>FinTxt news intensity values are based on news articles. These articles are written in either one of the following languages:</p>
+<ol style="list-style-type: decimal">
+<li>English</li>
+<li>French</li>
+<li>German</li>
+<li>Arabic</li>
+<li>Russian</li>
+</ol>
+<p>When you retrieve news intensities, you can either select one of these languages or opt to use the aggregate of all languages (‘total’).</p>
+</div>
+<div id="selecting-companies" class="section level2">
+<h2><span class="header-section-number">2.2</span> Selecting companies</h2>
+<p>When using the API or the dashboard, you should query companies by using their <a href="https://en.wikipedia.org/wiki/Reuters_Instrument_Code">Reuters Instrument Code</a>.</p>
+</div>
+<div id="selecting-commodities" class="section level2">
+<h2><span class="header-section-number">2.3</span> Selecting commodities</h2>
+<p>You can query the API and dashboard for either companies or commodities (but not a mix of both). The following commodities are available:</p>
+<ul>
+<li>corn</li>
+<li>oats</li>
+<li>rice<br />
+</li>
+<li>soybeans<br />
+</li>
+<li>rapeseed<br />
+</li>
+<li>wheat<br />
+</li>
+<li>milk<br />
+</li>
+<li>cocoa<br />
+</li>
+<li>coffee<br />
+</li>
+<li>cotton<br />
+</li>
+<li>sugar<br />
+</li>
+<li>oranges<br />
+</li>
+<li>ethanol<br />
+</li>
+<li>propane<br />
+</li>
+<li>copper<br />
+</li>
+<li>lead<br />
+</li>
+<li>zinc<br />
+</li>
+<li>tin<br />
+</li>
+<li>aluminium</li>
+<li>nickel<br />
+</li>
+<li>cobalt<br />
+</li>
+<li>molybdenum</li>
+<li>steel<br />
+</li>
+<li>gold<br />
+</li>
+<li>platinum</li>
+<li>palladium</li>
+<li>silver</li>
+<li>rubber</li>
+<li>wool</li>
+<li>amber</li>
+</ul>
 
+</div>
 </div>
             </section>
 

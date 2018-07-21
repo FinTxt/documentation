@@ -1,6 +1,6 @@
 # News Intensity API {#theapi}
 
-The FinTxt news intensity API is hosted at <URL>. You can view the endpoints and their documentation at <URL/__swagger__>.
+The FinTxt news intensity API is hosted at [https://api.fintxt.io/rest](https://api.fintxt.io/rest). You can view the endpoints and their documentation [here](https://api.fintxt.io/rest/__swagger__/).
 
 The API contains four endpoints:
 
@@ -13,7 +13,63 @@ The *language* endpoint can be queried without an API key. The *historic* endpoi
 
 ## Basic usage
 
-View the [documentation](<URL/__swagger__/) for each endpoint for more information about headers and post bodies.
+View the [documentation](https://api.fintxt.io/rest/__swagger__/) for each endpoint for more information about headers and post bodies.
+
+Essentially, you can query each endpoint by building the URL. For example, you want to query the news intensity value for the commodity `wool` on 04-06-2018 for texts written in arabic. Your query would then look as follows:
+
+```text 
+languages = 'arabic'
+date = '04-06-2018'
+endpoint = 'historic'
+type = 'commodities'
+q = 'wool'
+```
+
+You could construct this request using `curl`:
+
+```bash
+curl -X GET "https://api.fintxt.io/rest/historic/commodities/arabic/04-06-2018?q=wool" -H  "accept: application/json"
+```
+
+You could use `httr` in R:
+
+```R
+languages <- 'arabic'
+date <- '04-06-2018'
+endpoint <- 'historic'
+type <- 'commodities'
+q <- 'wool'
+
+url <- paste0("https://api.fintxt.io/rest/", endpoint, "/", type, "/", languages, "/", date, "?q=", q)
+
+resp <- httr::GET(url)
+httr::content(resp)
+```
+
+Or you could use `requests` in Python:
+
+```python
+import json
+import requests
+
+languages = 'arabic'
+date = '04-06-2018'
+endpoint = 'historic'
+type_ = 'commodities'
+q = 'wool'
+
+url = "https://api.fintxt.io/rest/{}/{}/{}/{}?q={}".format(endpoint, type_, languages, date, q)
+
+# Send request 
+r = requests.get(url)
+
+# Load response
+c = json.loads(r.content)
+
+print(c)
+```
+
+But it would be easier to use the clients described below.
 
 ## R and Python clients 
 

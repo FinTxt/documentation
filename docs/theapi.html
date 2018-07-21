@@ -102,7 +102,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="gettinstarted.html"><a href="gettinstarted.html"><i class="fa fa-check"></i><b>2</b> Getting started</a></li>
+<li class="chapter" data-level="2" data-path="gettinstarted.html"><a href="gettinstarted.html"><i class="fa fa-check"></i><b>2</b> Getting started</a><ul>
+<li class="chapter" data-level="2.1" data-path="gettinstarted.html"><a href="gettinstarted.html#languages"><i class="fa fa-check"></i><b>2.1</b> Languages</a></li>
+<li class="chapter" data-level="2.2" data-path="gettinstarted.html"><a href="gettinstarted.html#selecting-companies"><i class="fa fa-check"></i><b>2.2</b> Selecting companies</a></li>
+<li class="chapter" data-level="2.3" data-path="gettinstarted.html"><a href="gettinstarted.html#selecting-commodities"><i class="fa fa-check"></i><b>2.3</b> Selecting commodities</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="theapi.html"><a href="theapi.html"><i class="fa fa-check"></i><b>3</b> News Intensity API</a><ul>
 <li class="chapter" data-level="3.1" data-path="theapi.html"><a href="theapi.html#basic-usage"><i class="fa fa-check"></i><b>3.1</b> Basic usage</a></li>
 <li class="chapter" data-level="3.2" data-path="theapi.html"><a href="theapi.html#r-and-python-clients"><i class="fa fa-check"></i><b>3.2</b> R and Python clients</a><ul>
@@ -135,7 +139,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="theapi" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> News Intensity API</h1>
-<p>The FinTxt news intensity API is hosted at <URL>. You can view the endpoints and their documentation at <URL/__swagger__>.</p>
+<p>The FinTxt news intensity API is hosted at <a href="https://api.fintxt.io/rest" class="uri">https://api.fintxt.io/rest</a>. You can view the endpoints and their documentation <a href="https://api.fintxt.io/rest/__swagger__/">here</a>.</p>
 <p>The API contains four endpoints:</p>
 <ol style="list-style-type: decimal">
 <li><strong>languages</strong>: returns a list of available language for which you can query news intensities</li>
@@ -146,7 +150,46 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The <em>language</em> endpoint can be queried without an API key. The <em>historic</em> endpoint can be queried without an API key for dates that go back beyond 30 days on the date of today.</p>
 <div id="basic-usage" class="section level2">
 <h2><span class="header-section-number">3.1</span> Basic usage</h2>
-<p>View the <a href="%3CURL/__swagger__/">documentation</a> for each endpoint for more information about headers and post bodies.</p>
+<p>View the <a href="https://api.fintxt.io/rest/__swagger__/">documentation</a> for each endpoint for more information about headers and post bodies.</p>
+<p>Essentially, you can query each endpoint by building the URL. For example, you want to query the news intensity value for the commodity <code>wool</code> on 04-06-2018 for texts written in arabic. Your query would then look as follows:</p>
+<pre class="text"><code>languages = &#39;arabic&#39;
+date = &#39;04-06-2018&#39;
+endpoint = &#39;historic&#39;
+type = &#39;commodities&#39;
+q = &#39;wool&#39;</code></pre>
+<p>You could construct this request using <code>curl</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -X GET <span class="st">&quot;https://api.fintxt.io/rest/historic/commodities/arabic/04-06-2018?q=wool&quot;</span> -H  <span class="st">&quot;accept: application/json&quot;</span></code></pre></div>
+<p>You could use <code>httr</code> in R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">languages &lt;-<span class="st"> &#39;arabic&#39;</span>
+date &lt;-<span class="st"> &#39;04-06-2018&#39;</span>
+endpoint &lt;-<span class="st"> &#39;historic&#39;</span>
+type &lt;-<span class="st"> &#39;commodities&#39;</span>
+q &lt;-<span class="st"> &#39;wool&#39;</span>
+
+url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;https://api.fintxt.io/rest/&quot;</span>, endpoint, <span class="st">&quot;/&quot;</span>, type, <span class="st">&quot;/&quot;</span>, languages, <span class="st">&quot;/&quot;</span>, date, <span class="st">&quot;?q=&quot;</span>, q)
+
+resp &lt;-<span class="st"> </span>httr<span class="op">::</span><span class="kw">GET</span>(url)
+httr<span class="op">::</span><span class="kw">content</span>(resp)</code></pre></div>
+<p>Or you could use <code>requests</code> in Python:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> json
+<span class="im">import</span> requests
+
+languages <span class="op">=</span> <span class="st">&#39;arabic&#39;</span>
+date <span class="op">=</span> <span class="st">&#39;04-06-2018&#39;</span>
+endpoint <span class="op">=</span> <span class="st">&#39;historic&#39;</span>
+type_ <span class="op">=</span> <span class="st">&#39;commodities&#39;</span>
+q <span class="op">=</span> <span class="st">&#39;wool&#39;</span>
+
+url <span class="op">=</span> <span class="st">&quot;https://api.fintxt.io/rest/</span><span class="sc">{}</span><span class="st">/</span><span class="sc">{}</span><span class="st">/</span><span class="sc">{}</span><span class="st">/</span><span class="sc">{}</span><span class="st">?q=</span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(endpoint, type_, languages, date, q)
+
+<span class="co"># Send request </span>
+r <span class="op">=</span> requests.get(url)
+
+<span class="co"># Load response</span>
+c <span class="op">=</span> json.loads(r.content)
+
+<span class="bu">print</span>(c)</code></pre></div>
+<p>But it would be easier to use the clients described below.</p>
 </div>
 <div id="r-and-python-clients" class="section level2">
 <h2><span class="header-section-number">3.2</span> R and Python clients</h2>
