@@ -144,9 +144,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <!--bookdown:title:start-->
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
-<p>// TODO: Add introduction</p>
-<p>// TODO: What are news intensities?</p>
+<p>This documentation describes the “news intensity” dashboard and API. These are tools for gauging the amount of relevant media coverage for any asset. That is to say, our news intensities (NI) measure the volume of news stories that are realistically pertinent to an asset, regardless of whether they mention that asset by name. For example, rare earths are used in making smartphones, therefore a story about rare-earth mining is potentially of relevance to a company manufacturing smartphones, whether or not the company is mentioned in the story. Likewise, Peru is a leader in zinc mining, therefore a story about political turmoil in Peru may have an impact on the prices of zinc futures, whether or not the connection is made in the story itself.</p>
+<p>The notion that asset prices are impacted by the nature and extent of media coverage (even when it does not contain new information) has found strong support in the finance literature (e.g. <span class="citation">Huberman and Regev (<a href="#ref-huberman2001contagious">2001</a>)</span>, <span class="citation">Engelberg and Parsons (<a href="#ref-engelberg2011causal">2011</a>)</span>, <span class="citation">Tetlock (<a href="#ref-tetlock2011all">2011</a>)</span>). By capturing the amount of related media coverage for any asset, NI are expected to have incremental explanatory power for asset price movements.</p>
+<p>The calculation of NI relies on Cortical.io’s multi-lingual semantic fingerprinting technology, which ingests text and outputs its “semantic fingerprint” in the form of a sparse 128x128 matrix of 0s and 1s. Each position in the matrix represents a topic, so that the fingerprint of a text indicates which of the possible 16,384 topics the text is related to. Every day and for every supported language, we obtain the aggregate semantic fingerprint of online news stories from thousands of sources. The count of the relevant stories for each topic is then normalized so that the average normalized value across topics is equal to 1. We also obtain semantic fingerprints for traded assets based on their textual descriptions (<span class="citation">Ibriyamova et al. (<a href="#ref-ibriyamova2017using">2017</a>)</span>, <span class="citation">Ibriyamova et al. (<a href="#ref-ibriyamova2018predicting">2018</a>)</span> show that such fingerprints have significant information content). The value of NI for any day/language/asset combination is the average of the normalized article counts across all topics related to the asset in question.</p>
 
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-huberman2001contagious">
+<p>Huberman, Gur, and Tomer Regev. 2001. “Contagious Speculation and a Cure for Cancer: A Nonevent That Made Stock Prices Soar.” <em>The Journal of Finance</em> 56 (1). Wiley Online Library: 387–96.</p>
+</div>
+<div id="ref-engelberg2011causal">
+<p>Engelberg, Joseph E, and Christopher A Parsons. 2011. “The Causal Impact of Media in Financial Markets.” <em>The Journal of Finance</em> 66 (1). Wiley Online Library: 67–97.</p>
+</div>
+<div id="ref-tetlock2011all">
+<p>Tetlock, Paul C. 2011. “All the News That’s Fit to Reprint: Do Investors React to Stale Information?” <em>The Review of Financial Studies</em> 24 (5). Oxford University Press: 1481–1512.</p>
+</div>
+<div id="ref-ibriyamova2017using">
+<p>Ibriyamova, Feriha, Samuel Kogan, Galla Salganik-Shoshan, and David Stolin. 2017. “Using Semantic Fingerprinting in Finance.” <em>Applied Economics</em> 49 (28). Taylor &amp; Francis: 2719–35.</p>
+</div>
+<div id="ref-ibriyamova2018predicting">
+<p>Ibriyamova, Feriha, Samuel Kogan, Galla Salganik-Shoshan, and David Stolin. 2018. “Predicting Stock Return Correlations with Brief Company Descriptions.” <em>Applied Economics</em>. Taylor &amp; Francis, 1–15.</p>
+</div>
 </div>
             </section>
 
