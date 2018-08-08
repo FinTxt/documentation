@@ -124,6 +124,20 @@
     \predate{}\postdate{}
   
 \usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -147,9 +161,41 @@
 }
 \chapter{Introduction}\label{intro}
 
-// TODO: Add introduction
+This documentation describes the ``news intensity'' dashboard and API.
+These are tools for gauging the amount of relevant media coverage for
+any asset. That is to say, our news intensities (NI) measure the volume
+of news stories that are realistically pertinent to an asset, regardless
+of whether they mention that asset by name. For example, rare earths are
+used in making smartphones, therefore a story about rare-earth mining is
+potentially of relevance to a company manufacturing smartphones, whether
+or not the company is mentioned in the story. Likewise, Peru is a leader
+in zinc mining, therefore a story about political turmoil in Peru may
+have an impact on the prices of zinc futures, whether or not the
+connection is made in the story itself.
 
-// TODO: What are news intensities?
+The notion that asset prices are impacted by the nature and extent of
+media coverage (even when it does not contain new information) has found
+strong support in the finance literature (e.g.
+\citet{huberman2001contagious}, \citet{engelberg2011causal},
+\citet{tetlock2011all}). By capturing the amount of related media
+coverage for any asset, NI are expected to have incremental explanatory
+power for asset price movements.
+
+The calculation of NI relies on Cortical.io's multi-lingual semantic
+fingerprinting technology, which ingests text and outputs its ``semantic
+fingerprint'' in the form of a sparse 128x128 matrix of 0s and 1s. Each
+position in the matrix represents a topic, so that the fingerprint of a
+text indicates which of the possible 16,384 topics the text is related
+to. Every day and for every supported language, we obtain the aggregate
+semantic fingerprint of online news stories from thousands of sources.
+The count of the relevant stories for each topic is then normalized so
+that the average normalized value across topics is equal to 1. We also
+obtain semantic fingerprints for traded assets based on their textual
+descriptions (\citet{ibriyamova2017using},
+\citet{ibriyamova2018predicting} show that such fingerprints have
+significant information content). The value of NI for any
+day/language/asset combination is the average of the normalized article
+counts across all topics related to the asset in question.
 
 \chapter{Getting started}\label{gettinstarted}
 
@@ -505,10 +551,69 @@ combination. Before you read on, you should check out the
 \href{https://fintxt.github.io/documentation/gettinstarted.html}{`getting
 started' section}.
 
+\section{Company overview}\label{company-overview}
+
+After logging in to the dashboard, you can view the submenu's for the
+`Company' section by click on the \texttt{Company} tab. Enter a
+commodity name or company RIC into the search bar and select one of the
+sub categories.
+
+\begin{figure}
+\centering
+\includegraphics{img/company_overview.gif}
+\caption{Querying a company or commodity}
+\end{figure}
+
+\section{Portfolio overview}\label{portfolio-overview}
+
+To work with the portfolio overview, you first have to upload a
+portfolio. This file has to be comma-delimited (CVS).
+
+Your file must contain two columns; the first column must be called
+`identifier' (this is where the company RICs or commodity names go) and
+the second column must be called `weight' (this is where you specify the
+percentage in decimal form).
+
+An example of a portfolio file is given below.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|r}
+\hline
+identifier & weight\\
+\hline
+TRI.TO & 0.33\\
+\hline
+AAPL.OQ & 0.33\\
+\hline
+GOOGL.OQ & 0.33\\
+\hline
+\end{tabular}
+\end{table}
+
+Next, upload your portfolio using the `upload' functionality.
+
 \begin{figure}
 \centering
 \includegraphics{img/createportfolio.gif}
-\caption{portfolio}
+\caption{Creating and uploading a portfolio}
+\end{figure}
+
+You can now use the portfolio features as shown below.
+
+\begin{figure}
+\centering
+\includegraphics{img/portfolio_overview.gif}
+\caption{Using the portfolio features}
+\end{figure}
+
+Note that you cannot mix both commodities and companies in your
+portfolio. If you try this, you will see the following error:
+
+\begin{figure}
+\centering
+\includegraphics{img/mixcomms.gif}
+\caption{Mixing commodities and companies}
 \end{figure}
 
 \chapter{Resources}\label{resources}
